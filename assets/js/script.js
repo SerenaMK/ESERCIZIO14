@@ -6,6 +6,13 @@ document.getElementById("button").addEventListener("click", function () {
     var budget = document.getElementById("customBudget").valueAsNumber;
     var limite = document.getElementById("customLimit").valueAsNumber;
 
+    if (!budget || !limite) {
+        document.getElementById("warning").innerHTML = "Attenzione! Compilare entrambi i campi.";
+        return;
+    } else {
+        document.getElementById("warning").innerHTML = "";
+    }
+
     document.getElementById("budget").innerHTML = budget;
     document.getElementById("limit").innerHTML = limite;
 
@@ -21,10 +28,11 @@ document.getElementById("button").addEventListener("click", function () {
         }
         
     }
-    
+
     document.getElementById("msgAcquistato").innerHTML = `<li>Hai acquistato <span>${oggetti}</span> oggetti.</li>`;
 
     document.getElementById("msgTroppo").innerHTML = `<li>Hai meno di <span>${limite}</span> &euro;. Ora basta! Stai spendendo troppo!</li>`;
+
 })
 
 function reset() {
